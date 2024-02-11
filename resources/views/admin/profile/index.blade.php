@@ -29,17 +29,17 @@
                             <img src="{{asset(Auth::user()->image)}}" width="100" alt="">
                         </div>
                         <label>Image</label>
-                        <input type="file" name="image" class="form-control" required="">
+                        <input type="file" name="image" class="form-control" >
                         
                       </div>                              
                     <div class="form-group col-md-6 col-12">
                       <label>Name</label>
-                      <input type="text" name="name" class="form-control" value="{{Auth::user()->name}}" required="">
+                      <input type="text" name="name" class="form-control" value="{{Auth::user()->name}}" >
                       
                     </div>
                     <div class="form-group col-md-6 col-12">
                       <label>Email</label>
-                      <input  type="text" name="email" class="form-control" value="{{Auth::user()->email}}" required="">
+                      <input  type="text" name="email" class="form-control" value="{{Auth::user()->email}}" >
                     
                     </div>
                   </div>
@@ -57,11 +57,7 @@
         {{-- update password --}}
         <div class="col-12 col-md-12 col-lg-7">
             <div class="card">
-                @if ($errors->any())
-                @foreach ($errors->all() as $error)
-                    <span class="alert alert-danger">{{$error}}</span>
-                @endforeach
-            @endif
+           
               <form method="post"  class="needs-validation" novalidate="" action="{{route('admin.password.update')}}">
                   @csrf
                 <div class="card-header">
