@@ -14,6 +14,7 @@
 
       <div class="row mt-sm-4">
     
+        {{-- update profile --}}
         <div class="col-12 col-md-12 col-lg-7">
           <div class="card">
             <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate="" action="{{route('admin.profile.update')}}">
@@ -52,6 +53,46 @@
             </form>
           </div>
         </div>
+
+        {{-- update password --}}
+        <div class="col-12 col-md-12 col-lg-7">
+            <div class="card">
+                @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                    <span class="alert alert-danger">{{$error}}</span>
+                @endforeach
+            @endif
+              <form method="post"  class="needs-validation" novalidate="" action="{{route('admin.password.update')}}">
+                  @csrf
+                <div class="card-header">
+                  <h4>Update Password</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row"> 
+                                                 
+                      <div class="form-group col-12">
+                        <label>Current Password</label>
+                        <input type="password" name="current_password" class="form-control" value="">    
+                      </div>
+                      <div class="form-group col-12">
+                        <label>New Password</label>
+                        <input type="password" name="password" class="form-control" value="">    
+                      </div>
+                      <div class="form-group col-12">
+                        <label>Confirm Password</label>
+                        <input type="password" name="password_confirmation" class="form-control" value="">    
+                      </div>
+                    </div>
+                
+               
+                   
+                </div>
+                <div class="card-footer text-right">
+                  <button class="btn btn-primary">Save Changes</button>
+                </div>
+              </form>
+            </div>
+          </div>
       </div>
     </div>
   </section>
