@@ -25,6 +25,9 @@
   <link rel="stylesheet" href="{{asset('frontend/assets/css/style.css')}}">
   <link rel="stylesheet" href="{{asset('frontend/assets/css/responsive.css')}}">
   <!-- <link rel="stylesheet" href="css/rtl.css"> -->
+
+     {{-- toastr css --}}
+     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
 </head>
 
 <body>
@@ -101,6 +104,32 @@
 
   <!--main/custom js-->
   <script src="{{asset('frontend/assets/js/main.js')}}"></script>
+  {{-- toastr js --}}
+  <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <script>
+    toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+    }
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            toastr.error("{{$error}}")
+        @endforeach
+    @endif
+</script>
 </body>
 
 </html>
