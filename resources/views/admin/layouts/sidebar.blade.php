@@ -15,6 +15,15 @@
                     <li><a class="nav-link" href="index.html">Ecommerce Dashboard</a></li>
                 </ul>
             </li>
+
+            <li class="menu-header">Manage Website</li>
+            <li class="dropdown active">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Manage Website</span></a>
+                <ul class="dropdown-menu">
+                    <li class=active><a class="nav-link" href="{{route('admin.slider.index')}}">Slider</a></li>
+                    
+                </ul>
+            </li>
    
        
             <li><a class="nav-link" href="credits.html"><i class="fas fa-pencil-ruler"></i>
