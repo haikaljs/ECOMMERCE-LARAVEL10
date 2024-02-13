@@ -120,8 +120,8 @@
             @endforeach
         @endif
     </script>
-   @stack('scripts')
-    {{ $dataTable->scripts(attributes: ['type' => 'module']) }}
+  @stack('scripts')
+   
 </body>
 
 </html>

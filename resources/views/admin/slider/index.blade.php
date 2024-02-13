@@ -17,7 +17,7 @@
        
         <div class="row">
           <div class="col-12">
-            <div class="card">
+            <div class="card" style="overflow-x:auto">
               <div class="card-header">
                 <h4>Simple Table</h4>
                 <div class="card-header-action">
