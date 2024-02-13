@@ -33,7 +33,7 @@ class SliderController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            // 'banner' => ['required', 'image', 'max:2000'],
+            'banner' => ['required', 'image', 'max:2000'],
             'type' => ['max:200'],
             'title' => ['required', 'max:200'],
             'starting_price' => ['max:200'],
@@ -55,7 +55,7 @@ class SliderController extends Controller
         $slider->save();
 
         toastr('Created successfully', 'success');
-        return redirect()->back();
+        return redirect()->route('admin.slider.index');
     }
 
     /**
@@ -112,6 +112,23 @@ class SliderController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $slider = Slider::findOrFail($id);
+        if($slider->banner){
+            $this->deleteImage($slider->banner);
+            $slider->delete();
+    
+            return response([
+                'status' => 'success',
+                'message' => 'Deleted Successfully!'
+            ]);
+        }else {
+            $slider->delete();
+            return response([
+                'status' => 'success',
+                'message' => 'Deleted Successfully!'
+            ]);
+        }
+        
+     
     }
 }

@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>General Dashboard &mdash; Stisla</title>
 
     <!-- General CSS Files -->
@@ -81,6 +82,10 @@
     <script src="{{ asset('backend/assets/modules/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
     <script src="{{ asset('backend/assets/modules/summernote/summernote-bs4.js') }}"></script>
     <script src="{{ asset('backend/assets/modules/chocolat/dist/js/jquery.chocolat.min.js') }}"></script>
+    {{-- sweet alert2 --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
     {{-- toastr js --}}
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     {{-- yajra js --}}
@@ -120,6 +125,62 @@
             @endforeach
         @endif
     </script>
+
+    {{-- sweet alert for delete --}}
+    <script>
+        $(document).ready(function(){
+      
+            $('body').on('click', '.delete-item', function(event){
+                event.preventDefault()
+
+                let deleteUrl = $(this).attr('href')
+
+                Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+                }).then((result) => {
+                if (result.isConfirmed) {
+
+                    $.ajax({
+                        type: 'DELETE',
+                        url: deleteUrl,
+                        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+
+                        success: function(data){
+                            if(data.status == 'success'){
+                              
+                                Swal.fire(
+                                "Deleted!",
+                                data.message
+                                );
+                                window.location.reload()
+                               
+                            }else if (data.status == 'error'){
+                                Swal.fire(
+                                "Cant Delete",
+                                data.message
+                                );
+                             
+                            }
+                         
+                        },
+                        error: function(xhr, status, error){
+                            console.log(error)
+                        }
+                    })
+
+                 
+                }
+            });
+            })
+        })
+    </script>
+
   @stack('scripts')
    
 </body>
