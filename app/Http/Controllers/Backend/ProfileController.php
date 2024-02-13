@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers\Backend;
 
+use File;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use File;
 
 class ProfileController extends Controller
 {
+    
+    
     public function index(){
         return view('admin.profile.index');
     }
@@ -21,9 +23,10 @@ class ProfileController extends Controller
        ]);
 
        $user = Auth::user();
+   
 
        if($request->hasFile('image')){
-     
+
         if(File::exists(public_path($user->image))){
             File::delete(public_path($user->image));
         }
