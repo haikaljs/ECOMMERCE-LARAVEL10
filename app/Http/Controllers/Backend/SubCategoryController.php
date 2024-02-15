@@ -81,7 +81,7 @@ class SubCategoryController extends Controller
         ]);
         
         $subCategory =  SubCategory::findOrFail($id);
-        
+
         $subCategory->category_id = $request->category;
         $subCategory->name = $request->name;
         $subCategory->slug = Str::slug($request->name);
@@ -97,6 +97,11 @@ class SubCategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $subCategory = SubCategory::findOrFail($id);
+        $subCategory->delete();
+
+        return response([
+            'status' => 'success', 'message' => 'Deleted Successfully'
+        ]);
     }
 }
