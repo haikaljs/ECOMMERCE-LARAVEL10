@@ -21,7 +21,7 @@
               <div class="card-header">
                 <h4>All Child Categories</h4>
                 <div class="card-header-action">
-                    <a href="{{route('admin.childcategory.create')}}" class="btn btn-primary"><i class="fas fa-plus"></i> Create new</a>
+                    <a href="{{route('admin.child-category.create')}}" class="btn btn-primary"><i class="fas fa-plus"></i> Create new</a>
                 </div>
               </div>
               <div class="card-body">

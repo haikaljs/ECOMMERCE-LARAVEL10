@@ -23,7 +23,7 @@
               
               </div>
               <div class="card-body">
-                <form action="{{route('admin.childcategory.store')}}" method="POST">
+                <form action="{{route('admin.child-category.store')}}" method="POST">
                   @csrf
              
                   <div class="form-group">
@@ -37,7 +37,7 @@
                   </div>
                   <div class="form-group">
                     <label>Sub Category</label>
-                    <select class="form-control sub-category"  name="category">
+                    <select class="form-control sub-category"  name="sub_category">
                       <option value="">Select</option>
       
                     </select>
@@ -74,7 +74,7 @@
        let id = $(this).val()
        $.ajax({
         method: 'GET',
-        url: '{{route('admin.childcategory.get-subcategories')}}',
+        url: '{{route('admin.child-category.get-subcategories')}}',
         data: {
           id: id
         },
