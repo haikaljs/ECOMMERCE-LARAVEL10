@@ -104,4 +104,10 @@ class SubCategoryController extends Controller
             'status' => 'success', 'message' => 'Deleted Successfully'
         ]);
     }
+
+    public function changeStatus(Request $request){
+        $categories = Category::all();
+        $subCategory = SubCategory::findOrFail($request->id);
+        return response(['message' => 'Status has been updated']);
+    }
 }
