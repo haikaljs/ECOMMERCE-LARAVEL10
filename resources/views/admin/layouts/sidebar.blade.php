@@ -19,7 +19,7 @@
                 'admin.subcategory.*',
                 'admin.child-category.*'
             ])}}">
-           
+        
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Manage Categories</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{setActive(['admin.category.*'])}}"><a class="nav-link" href="{{route('admin.category.index')}}">Category</a></li>
@@ -28,10 +28,19 @@
                     
                 </ul>
             </li>
+
             <li class="dropdown {{setActive(['admin.slider.*'])}}">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Manage Website</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{setActive(['admin.slider.*'])}}"><a class="nav-link" href="{{route('admin.slider.index')}}">Slider</a></li>
+                    
+                </ul>
+            </li>
+
+            <li class="dropdown {{setActive(['admin.brand.*'])}}">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Manage Products</span></a>
+                <ul class="dropdown-menu">
+                    <li class="{{setActive(['admin.brand.*'])}}"><a class="nav-link" href="{{route('admin.brand.index')}}">Brands</a></li>
                     
                 </ul>
             </li>
