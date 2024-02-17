@@ -34,6 +34,6 @@ Route::get('get-subcategories', [ ChildCategoryController::class, 'getSubCategor
 Route::resource('child-category', ChildCategoryController::class);
 
 // Brand routes
-Route::put('brand/change-status', [ BrandController::class, 'brand.changeStatus'])->name('brand.change-status');
+Route::put('brand/change-status', [ BrandController::class, 'changeStatus'])->name('brand.change-status');
 Route::resource('brand', BrandController::class);
 ?>

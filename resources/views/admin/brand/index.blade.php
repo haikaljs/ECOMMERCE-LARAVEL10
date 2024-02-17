@@ -47,7 +47,7 @@
         let id = $(this).data('id')
         
         $.ajax({
-          url: "{{route('admin.category.change-status')}}",
+          url: "{{route('admin.brand.change-status')}}",
           method: 'PUT',
           headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
           data: {
