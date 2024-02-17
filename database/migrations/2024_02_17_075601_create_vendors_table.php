@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->text('banner');
             $table->string('phone');
-            $table->string('email');
+            $table->string('email')->unique();
             $table->text('address');
             $table->text('description');
             $table->text('fb_link')->nullable();
