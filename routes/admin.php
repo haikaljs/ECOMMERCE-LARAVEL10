@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\ChildCategoryController;
+use App\Http\Controllers\Backend\AdminVendorProfileController;
     
 // Admin routes
 Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
@@ -36,4 +37,8 @@ Route::resource('child-category', ChildCategoryController::class);
 // Brand routes
 Route::put('brand/change-status', [ BrandController::class, 'changeStatus'])->name('brand.change-status');
 Route::resource('brand', BrandController::class);
+
+// vendoor profile routes
+
+Route::resource('vendor-profile', AdminVendorProfileController::class);
 ?>
