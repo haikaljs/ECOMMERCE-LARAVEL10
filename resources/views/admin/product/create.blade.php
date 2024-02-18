@@ -29,11 +29,7 @@
                     <label>Name</label>
                     <input type="text" name="name"  value="{{old('name')}}"  class="form-control">
                 </div>
-                <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" name="name"  value="{{old('name')}}"  class="form-control">
-                </div>
-         
+             
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-4">
@@ -71,19 +67,128 @@
                     </div>
                    
                  
+                 
+                  
                 </div>
 
                 <div class="form-group">
+                  <label>Brand</label>
+                  <select class="form-control" name="brand">
+                    <option value="">Select</option>
+                    @foreach ($brands as $brand)
+                    <option value="{{$brand->id}}">{{$brand->name}}</option>
+                    @endforeach
+                  
+                  </select>
+               </div>
+
+               <div class="form-group">
+                <label>SKU</label>
+                <input type="text" name="sku"  value="{{old('sku')}}"  class="form-control">
+              </div>
+
+               <div class="form-group">
+                <label>Price</label>
+                <input type="text" name="price"  value="{{old('price')}}"  class="form-control">
+              </div>
+
+              <div class="form-group">
+                <label>Offer Price</label>
+                <input type="text" name="offer_price"  value="{{old('offer_price')}}"  class="form-control">
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Offer Start Price</label>
+                    <input type="offer_start_price" class="form-control datepicker">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Offer End Date</label>
+                    <input type="text" name="offer_end_date"  value="{{old('offer_end_date')}}"  class="form-control datepicker">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Stock Quantity</label>
+                <input type="number" min="0" name="qty"  value="{{old('qty')}}"  class="form-control">
+              </div>
+              
+              <div class="form-group">
+                <label>Video Link</label>
+                <input type="text" name="video_link"  value="{{old('video_link')}}"  class="form-control">
+              </div>
+
+              <div class="form-group">
+                <label>Short Description</label>
+                <textarea type="text" name="short_description"   class="form-control">
+                </textarea>
+              </div>
+
+              <div class="form-group">
+                <label>Long Description</label>
+                <textarea name="long_description" class="form-control summernote">
+                </textarea>
+              </div>
+
+           <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Is Top</label>
+                <select class="form-control" name="is_top">
+                  <option value="">Select</option>
+                  <option value="1">Yes</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+
+             
+
+              
+            </div>
+            <div class="col-md-4"> <div class="form-group">
+              <label>Is Best</label>
+              <select class="form-control" name="is_best">
+                <option value="">Select</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+              </select>
+            </div></div>
+            <div class="col-md-4"><div class="form-group">
+              <label>Is Featured</label>
+              <select class="form-control" name="is_featured">
+                <option value="">Select</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+              </select>
+            </div></div>
+           </div>
+
+           <div class="form-group">
+            <label>SEO Title</label>
+            <input type="text" name="seo_title"  value="{{old('seo_title')}}"  class="form-control">
+          </div>
+
+           <div class="form-group">
+            <label>SEO Description</label>
+            <textarea name="seo_description" class="form-control">
+            </textarea>
+          </div>
+
+              <div class="form-group">
                     <label>Status</label>
                     <select class="form-control" name="status">
                       <option value="1">Active</option>
                       <option value="0">Inactive</option>
                   
                     </select>
-                 </div>
-                <button type="submit" class="btn btn-primary">Create</button>
-              </form>
               </div>
+              <button type="submit" class="btn btn-primary">Create</button>
+              </form>
+            </div>
      
             </div>
           </div>
