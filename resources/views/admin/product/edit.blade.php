@@ -19,8 +19,9 @@
                
               </div>
               <div class="card-body">
-              <form action="{{route('admin.products.store')}}" method="POST" enctype="multipart/form-data">
+              <form action="{{route('admin.products.update', $product->id)}}" method="POST" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
                 <div class="form-group">
                     <label>Preview</label>
                     <br>
@@ -141,7 +142,7 @@
               <div class="form-group">
                 <label>Long Description</label>
                 <textarea name="long_description" class="form-control summernote">
-                {{!! $product->long_description !!}}
+                {!! $product->long_description !!}
                 </textarea>
               </div>
 
@@ -167,7 +168,7 @@
            <div class="form-group">
             <label>SEO Description</label>
             <textarea name="seo_description" class="form-control">
-              {{!! $product->seo_description !!}}
+              {!! $product->seo_description !!}
             </textarea>
           </div>
 
@@ -179,7 +180,7 @@
                   
                     </select>
               </div>
-              <button type="submit" class="btn btn-primary">Create</button>
+              <button type="submit" class="btn btn-primary">Update</button>
               </form>
             </div>
      
