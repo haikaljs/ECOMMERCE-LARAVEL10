@@ -136,38 +136,19 @@
                 </textarea>
               </div>
 
-           <div class="row">
-            <div class="col-md-4">
+    
+         
               <div class="form-group">
-                <label>Is Top</label>
-                <select class="form-control" name="is_top">
+                <label>Product Type</label>
+                <select class="form-control" name="product_type">
                   <option value="">Select</option>
-                  <option value="1"  {{ old('is_top') == '1' ? 'selected' : '' }}>Yes</option>
-                  <option value="0"  {{ old('is_top') == '0' ? 'selected' : '' }}>No</option>
+                  <option value="new_arrival" {{ old('product_type') == 'new_arrival' ? 'selected' : '' }}>New Arrival</option>
+                  <option value="featured_product" {{ old('product_type')  == 'featured_product' ? 'selected' : '' }}>Featured</option>
+                  <option value="top_product" {{ old('product_type')  == 'top_product' ? 'selected' : '' }}>Top Product</option>
+                  <option value="best_product" {{ old('product_type')  == 'best_product' ? 'selected' : '' }}>Best Product</option>
+               
                 </select>
               </div>
-
-             
-
-              
-            </div>
-            <div class="col-md-4"> <div class="form-group">
-              <label>Is Best</label>
-              <select class="form-control" name="is_best">
-                <option value="">Select</option>
-                <option value="1" {{ old('is_best') == '1' ? 'selected' : '' }}>Yes</option>
-                <option value="0" {{ old('is_best') == '0' ? 'selected' : '' }}>No</option>
-              </select>
-            </div></div>
-            <div class="col-md-4"><div class="form-group">
-              <label>Is Featured</label>
-              <select class="form-control" name="is_featured">
-                <option value="">Select</option>
-                <option value="1" {{ old('is_featured') == '1' ? 'selected' : '' }}>Yes</option>
-                <option value="0" {{ old('is_featured') == '0' ? 'selected' : '' }}>No</option>
-              </select>
-            </div></div>
-           </div>
 
            <div class="form-group">
             <label>SEO Title</label>
@@ -177,6 +158,7 @@
            <div class="form-group">
             <label>SEO Description</label>
             <textarea name="seo_description" class="form-control">
+              {{old('seo_description')}}
             </textarea>
           </div>
 
