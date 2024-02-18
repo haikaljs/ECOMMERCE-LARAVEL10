@@ -125,12 +125,14 @@
               <div class="form-group">
                 <label>Short Description</label>
                 <textarea type="text" name="short_description"   class="form-control">
+                {{old('short_description')}}
                 </textarea>
               </div>
 
               <div class="form-group">
                 <label>Long Description</label>
                 <textarea name="long_description" class="form-control summernote">
+                {{old('long_description')}}
                 </textarea>
               </div>
 
@@ -140,8 +142,8 @@
                 <label>Is Top</label>
                 <select class="form-control" name="is_top">
                   <option value="">Select</option>
-                  <option value="1">Yes</option>
-                  <option value="0">No</option>
+                  <option value="1"  {{ old('is_top') == '1' ? 'selected' : '' }}>Yes</option>
+                  <option value="0"  {{ old('is_top') == '0' ? 'selected' : '' }}>No</option>
                 </select>
               </div>
 
@@ -153,16 +155,16 @@
               <label>Is Best</label>
               <select class="form-control" name="is_best">
                 <option value="">Select</option>
-                <option value="1">Yes</option>
-                <option value="0">No</option>
+                <option value="1" {{ old('is_best') == '1' ? 'selected' : '' }}>Yes</option>
+                <option value="0" {{ old('is_best') == '0' ? 'selected' : '' }}>No</option>
               </select>
             </div></div>
             <div class="col-md-4"><div class="form-group">
               <label>Is Featured</label>
               <select class="form-control" name="is_featured">
                 <option value="">Select</option>
-                <option value="1">Yes</option>
-                <option value="0">No</option>
+                <option value="1" {{ old('is_featured') == '1' ? 'selected' : '' }}>Yes</option>
+                <option value="0" {{ old('is_featured') == '0' ? 'selected' : '' }}>No</option>
               </select>
             </div></div>
            </div>
