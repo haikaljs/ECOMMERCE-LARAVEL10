@@ -19,14 +19,16 @@
           <div class="col-12">
             <div class="card" style="overflow-x:auto">
               <div class="card-header">
-                <h4>Upload Image</h4>
+                <h4>Upload Image {{$product->name}}</h4>
               
               </div>
               <div class="card-body">
-                <form action="" enctype="multipart/form-data">
+                <form action="{{route('admin.products-image-gallery.store')}}" method="POST" enctype="multipart/form-data">
+                  @csrf
                   <div class="form-group">
                     <label for="">Image <code>(Multiple image supported!)</code></label>
-                    <input type="file" name="image" class="form-control" id="">
+                    <input type="file" name="image[]" class="form-control" multiple>
+                    <input type="hidden" name="product" value="{{$product->id}}">
                   </div>
                   <button type="submit" class="btn btn-primary">Save</button>
                 </form>
