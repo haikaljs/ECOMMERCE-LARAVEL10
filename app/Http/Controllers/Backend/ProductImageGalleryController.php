@@ -34,10 +34,17 @@ class ProductImageGalleryController extends Controller
      */
     public function store(Request $request)
     {
-       
-        $request->validate([
-            'image.*' => ['required', 'image', 'max:2048']
-        ]);
+        if(!$request->hasFile('image')){
+            $request->validate([
+                'image' => ['required', 'image', 'max:2048']
+            ]);
+        }
+        if($request->hasFile('image')){
+            $request->validate([
+                'image.*' => ['required', 'image', 'max:2048']
+            ]);
+        }
+      
         // handle image upload
         $imagePaths = $this->uploadMultiImage($request, 'image', 'uploads');
 
@@ -85,6 +92,21 @@ class ProductImageGalleryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $galleryImage = ProductImageGallery::findOrFail($id);
+        if($galleryImage->image){
+            $this->deleteImage($galleryImage->image);
+            $galleryImage->delete();
+    
+            return response([
+                'status' => 'success',
+                'message' => 'Deleted Successfully!'
+            ]);
+        }else {
+            $galleryImage->delete();
+            return response([
+                'status' => 'success',
+                'message' => 'Deleted Successfully!'
+            ]);
+        }
     }
 }
